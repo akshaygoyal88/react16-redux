@@ -1,8 +1,12 @@
 import expect from 'expect';
 import React from 'react';
-import {mount, shallow} from 'enzyme';
-import TestUtils from 'react-addons-test-utils';
+import {mount, shallow, configure} from 'enzyme';
 import CourseForm from './CourseForm';
+
+// setup enzyme
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
 
 function setup(saving) {
   const props = {

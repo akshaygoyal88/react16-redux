@@ -1,7 +1,12 @@
 import React from 'react';
 import expect from 'expect';
-import {mount, shallow} from 'enzyme';
+import {mount, shallow, configure} from 'enzyme';
 import {ManageCoursePage} from './ManageCoursePage';
+// setup enzyme
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
+
 
 describe ('Manage Course Page', () => {
   it('sets error message when trying to save empty title', () => {

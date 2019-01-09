@@ -8,7 +8,7 @@ const courses = [
     id: "react-flux-building-applications",
     title: "Building Applications in React and Flux",
     watchHref: "http://www.Impetus.com/courses/react-flux-building-applications",
-    authorId: "cory-house",
+    authorId: "akshay-goyal",
     length: "5:08",
     category: "JavaScript"
   },
@@ -16,7 +16,7 @@ const courses = [
     id: "clean-code",
     title: "Clean Code: Writing Code for Humans",
     watchHref: "http://www.Impetus.com/courses/writing-clean-code-humans",
-    authorId: "cory-house",
+    authorId: "akshay-goyal",
     length: "3:10",
     category: "Software Practices"
   },
@@ -24,7 +24,7 @@ const courses = [
     id: "architecture",
     title: "Architecting Applications for the Real World",
     watchHref: "http://www.Impetus.com/courses/architecting-applications-dotnet",
-    authorId: "cory-house",
+    authorId: "akshay-goyal",
     length: "2:52",
     category: "Software Architecture"
   },
@@ -32,7 +32,7 @@ const courses = [
     id: "career-reboot-for-developer-mind",
     title: "Becoming an Outlier: Reprogramming the Developer Mind",
     watchHref: "http://www.Impetus.com/courses/career-reboot-for-developer-mind",
-    authorId: "cory-house",
+    authorId: "akshay-goyal",
     length: "2:30",
     category: "Career"
   },
@@ -40,7 +40,7 @@ const courses = [
     id: "web-components-shadow-dom",
     title: "Web Component Fundamentals",
     watchHref: "http://www.Impetus.com/courses/web-components-shadow-dom",
-    authorId: "cory-house",
+    authorId: "akshay-goyal",
     length: "5:10",
     category: "HTML5"
   }
@@ -74,7 +74,7 @@ class CourseApi {
         }
 
         if (course.id) {
-          const existingCourseIndex = courses.findIndex(a => a.id == course.id);
+          const existingCourseIndex = courses.findIndex(a => a.id === course.id);
           courses.splice(existingCourseIndex, 1, course);
         } else {
           //Just simulating creation here.
@@ -94,7 +94,7 @@ class CourseApi {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const indexOfCourseToDelete = courses.findIndex(course => {
-          return course.courseId == courseId;
+          return course.courseId === courseId;
         });
         courses.splice(indexOfCourseToDelete, 1);
         resolve();

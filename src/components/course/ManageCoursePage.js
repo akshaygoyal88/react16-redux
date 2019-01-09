@@ -1,10 +1,11 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as courseActions from '../../actions/courseActions';
 import CourseForm from './CourseForm';
 import {authorsFormattedForDropdown} from '../../selectors/selectors';
 import toastr from 'toastr';
+import PropTypes from 'prop-types';
 
 export class ManageCoursePage extends React.Component {
   constructor(props, context) {
@@ -21,7 +22,7 @@ export class ManageCoursePage extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.course.id !== nextProps.course.id) {
+    if (this.props.course && this.props.course.id && this.props.course.id !== nextProps.course.id) {
       // Necessary to populate form when existing course is loaded directly.
       this.setState({course: Object.assign({}, nextProps.course)});
     }
@@ -97,7 +98,7 @@ ManageCoursePage.contextTypes = {
 };
 
 function getCourseById(courses, id) {
-  const course = courses.filter(course => course.id == id);
+  const course = courses.filter(course => course.id === id);
   if (course) return course[0]; //since filter returns an array, have to grab the first.
   return null;
 }

@@ -1,6 +1,7 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import { Link, IndexLink } from 'react-router';
 import LoadingDots from './LoadingDots';
+import PropTypes from 'prop-types';
 
 const Header = ({loading}) => {
   return (
