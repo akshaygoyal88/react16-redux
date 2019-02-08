@@ -9,6 +9,8 @@
     "compression": "^1.6.1",
     "cross-env": "1.0.7",
     "css-loader": "0.23.1",
+    "echarts": "^4.2.0-rc.2",
+    "echarts-for-react": "^2.0.15-beta.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "eventsource-polyfill": "0.9.6",
@@ -45,6 +47,23 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "coverageThreshold": {
+      "./src/components/": {
+        "branches": 40,
+        "statements": 40
+      },
+      "./src/reducers/**/*.js": {
+        "statements": 80
+      },
+      "./src/actions/courseActions.js": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
