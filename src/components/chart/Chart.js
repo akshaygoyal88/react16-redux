@@ -1,7 +1,11 @@
 import React, { PureComponent } from 'react';
 import ReactEcharts from 'echarts-for-react';
+import {loadChartData} from '../../actions/chartActions'
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import PropTypes from 'prop-types';
 
-export default class Chart extends PureComponent {
+class Chart extends PureComponent {
   constructor(props){
     super(props);
     this._onEvents ={
@@ -184,7 +188,10 @@ export default class Chart extends PureComponent {
     }
   }
   componentWillMount(){
-    this.getOption()
+    this.getOption();
+    console.log(this.props, 'propsssssssssssss')
+    this.props.dispatch(loadChartData())
+    // this.props.actions.loadChartData();
   }
   clickBtn = () => {
     console.log(this.echarts_react.getEchartsInstance().getDataURL());
@@ -208,6 +215,7 @@ export default class Chart extends PureComponent {
           "\n" +
           "// use echarts API: http://echarts.baidu.com/api.html#echartsInstance" +
           "this.echarts_react.getEchartsInstance().getDataURL();";
+    console.log(this.props.charts, 'chartschartschartscharts')
     return (
       <div className='examples'>
         <div className='parent'>
@@ -231,3 +239,23 @@ export default class Chart extends PureComponent {
     );
   }
 }
+
+
+Chart.propTypes = {
+  actions: PropTypes.function
+};
+
+function mapStateToProps(state,ownProps) {
+  return{
+    charts: state.charts
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators({loadChartData}, dispatch),
+    dispatch: dispatch
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Chart);
