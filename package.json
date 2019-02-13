@@ -27,11 +27,11 @@
     "open": "0.0.5",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
+    "react-app-rewired": "^1.0.11",
     "react-dom": "^16.6.3",
     "react-redux": "^5.1.1",
     "react-router": "^3.2.1",
     "react-router-redux": "4.0.4",
-    "react-scripts": "2.1.1",
     "react-test-renderer": "^16.6.3",
     "redux": "^4.0.1",
     "redux-immutable-state-invariant": "1.2.3",
@@ -43,10 +43,9 @@
     "url-loader": "0.5.7"
   },
   "scripts": {
-    "start_app": "npm-run-all --parallel start test",
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test — env=jsdom",
     "eject": "react-scripts eject"
   },
   "jest": {
@@ -74,5 +73,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "react-app-rewire-eslint": "^0.2.3"
+  }
 }
